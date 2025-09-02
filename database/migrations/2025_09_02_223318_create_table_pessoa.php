@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('pessoa', function (Blueprint $table) {
             $table->id();
 
-            $table->string("pes_nome", "45");
+            $table->string("pes_nome", 45);
             $table->text("pes_observacao")->nullable();
+            $table->boolean("pes_viva")->default(1);   // <- corrigido
+            $table->integer("pes_dtNasc");
+            $table->date("pes_agendamento")->nullable();
+            $table->bigInteger("pes_codigobarras")->nullable();
         });
     }
 
